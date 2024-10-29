@@ -14,7 +14,7 @@ const links = {
 };
 
 export const siteConfig = {
-  name: "Relivator",
+  name: "fleura",
   description:
     "An open source e-commerce shop built with everything new in Next.js",
   url: "https://fleura.de",

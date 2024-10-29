@@ -23,69 +23,55 @@ interface MainNavProps {
 
 export function MainNav({ items }: MainNavProps) {
   return (
-    <div className="hidden gap-6 lg:flex">
-      <Link href="/" className="hidden items-center space-x-2 lg:flex">
-        <Icons.logo className="size-7" aria-hidden="true" />
-        <span className="hidden font-bold lg:inline-block">
+    <div className="flex w-full items-center">
+      {/* Logo and site name - visible on all screens */}
+      <Link href="/" className="flex items-center space-x-2">
+        <img
+          src="/favicon.ico" // Update this path to match your favicon location
+          alt={`${siteConfig.name} logo`}
+          width={28}
+          height={28}
+          className="size-7"
+        />
+        <span className="font-bold">
           {siteConfig.name}
         </span>
         <span className="sr-only">Home</span>
       </Link>
-      <NavigationMenu>
-        <NavigationMenuList>
-          {items?.[0]?.items ? (
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="h-auto">
-                {items[0].title}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2 lg:grid-rows-1">
-                  {/* Left Column */}
-                  <li className="flex flex-col justify-between row-span-full">
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href="/"
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      >
-                        <Icons.logo className="h-6 w-6" aria-hidden="true" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          {siteConfig.name}
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          {siteConfig.description}
-                        </p>
-                        <span className="sr-only">Home</span>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
 
-                  {/* Right Column */}
-                  <div className="flex flex-col space-y-3">
-                    {items[0].items.map((item) => (
-                      <ListItem
-                        key={item.title}
-                        title={item.title}
-                        href={item.href}
-                      >
-                        {item.description}
-                      </ListItem>
-                    ))}
-                  </div>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          ) : null}
-          {items
-            ?.filter((item) => item.title !== items[0]?.title)
-            .map((item) =>
-              item.items ? (
-                <NavigationMenuItem key={item.title}>
-                  <NavigationMenuTrigger className="h-auto capitalize">
-                    {item.title}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      {item.items.map((item) => (
+      {/* Navigation items - hidden on smaller screens */}
+      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <NavigationMenu>
+          <NavigationMenuList>
+            {items?.[0]?.items ? (
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="h-auto">
+                  {items[0].title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2 lg:grid-rows-1">
+                    {/* Left Column */}
+                    <li className="flex flex-col justify-between row-span-full">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/"
+                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        >
+                          <Icons.logo className="h-6 w-6" aria-hidden="true" />
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            {siteConfig.name}
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            {siteConfig.description}
+                          </p>
+                          <span className="sr-only">Home</span>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col space-y-3">
+                      {items[0].items.map((item) => (
                         <ListItem
                           key={item.title}
                           title={item.title}
@@ -94,25 +80,50 @@ export function MainNav({ items }: MainNavProps) {
                           {item.description}
                         </ListItem>
                       ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ) : (
-                item.href && (
+                    </div>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ) : null}
+            {items
+              ?.filter((item) => item.title !== items[0]?.title)
+              .map((item) =>
+                item.items ? (
                   <NavigationMenuItem key={item.title}>
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={cn(navigationMenuTriggerStyle(), "h-auto")}
-                      >
-                        {item.title}
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuTrigger className="h-auto capitalize">
+                      {item.title}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        {item.items.map((item) => (
+                          <ListItem
+                            key={item.title}
+                            title={item.title}
+                            href={item.href}
+                          >
+                            {item.description}
+                          </ListItem>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
                   </NavigationMenuItem>
-                )
-              ),
-            )}
-        </NavigationMenuList>
-      </NavigationMenu>
+                ) : (
+                  item.href && (
+                    <NavigationMenuItem key={item.title}>
+                      <Link href={item.href} legacyBehavior passHref>
+                        <NavigationMenuLink
+                          className={cn(navigationMenuTriggerStyle(), "h-auto")}
+                        >
+                          {item.title}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  )
+                ),
+              )}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
     </div>
   );
 }

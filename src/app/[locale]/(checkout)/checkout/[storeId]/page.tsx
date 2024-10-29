@@ -107,7 +107,7 @@ export default async function CheckoutPage({ params }: CheckoutPageProps) {
                 aria-hidden="true"
               />
               <div className="block font-medium transition group-hover:hidden">
-                Relivator
+                fleura
               </div>
               <div className="hidden font-medium transition group-hover:block">
                 Back
