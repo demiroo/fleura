@@ -15,7 +15,7 @@ const config = {
   hooks: {
     async authenticate(page: Page) {
       // login to the page
-      await page.goto("https://relivator.com/signin", {
+      await page.goto("https://fleura.de/signin", {
         waitUntil: "networkidle0",
       });
       const emailInput = await page.$('input[type="text"]');

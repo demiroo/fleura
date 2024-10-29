@@ -17,8 +17,8 @@ export const siteConfig = {
   name: "Relivator",
   description:
     "An open source e-commerce shop built with everything new in Next.js",
-  url: "https://relivator.com",
-  ogImage: "https://relivator.com/og.png",
+  url: "https://fleura.de",
+  ogImage: "https://fleura.de/og.png",
   links,
   mainNav: [
     {
