@@ -18,7 +18,7 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL || "https://fleura.de"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
