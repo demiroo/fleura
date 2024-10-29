@@ -3,6 +3,7 @@
   "version": "1.3.0-canary.7",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.0.1",
   "scripts": {
     "appts": "redrun lint format typecheck build",
     "clean": "rimraf --glob **/node_modules **/dist **/.next **/.tsbuildinfo **/.react-email",

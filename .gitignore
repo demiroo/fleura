@@ -102,3 +102,6 @@ coverage/
 .vercel
 .env*.local
 .unlighthouse
+
+# Turborepo
+.turbo
