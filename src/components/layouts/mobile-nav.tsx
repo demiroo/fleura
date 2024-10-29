@@ -42,9 +42,9 @@ export function MobileNav({ items }: MobileNavProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="size-5 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 "
+          className="dark:text-white text-black size-5 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
         >
-          <Icons.menu aria-hidden="false" />
+          <Icons.menu aria-hidden="true" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
