@@ -28,6 +28,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
             <AuthDropdown user={user} />
             <MobileNav items={siteConfig.mainNav} />
           </nav>
+
         </div>
       </div>
     </header>
