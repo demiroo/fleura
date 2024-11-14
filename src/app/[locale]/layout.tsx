@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     creator: "@blefnk",
   },
   icons: {
-    icon: "/icon.png",
+    icon: "/logo.png",
   },
   manifest: absoluteUrl("/site.webmanifest"),
 };
