@@ -32,6 +32,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "color-1": "hsl(var(--color-1))",
+        "color-2": "hsl(var(--color-2))",
+        "color-3": "hsl(var(--color-3))",
+        "color-4": "hsl(var(--color-4))",
+        "color-5": "hsl(var(--color-5))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -121,7 +126,6 @@ export default {
             inverted: "#000000", // black
           },
         },
-        /* */
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -131,7 +135,6 @@ export default {
         "tremor-small": "0.375rem",
         "tremor-default": "0.5rem",
         "tremor-full": "9999px",
-        /* */
       },
       /* tremor */
       boxShadow: {
@@ -154,7 +157,6 @@ export default {
         "tremor-title": ["1.125rem", { lineHeight: "1.75rem" }],
         "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
       },
-      /* */
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         mono: ["var(--font-geist-mono)", ...fontFamily.mono],
@@ -180,10 +182,6 @@ export default {
           "60%": { transform: "translateX(3px) rotate(2.4deg)" },
           "75%": { transform: "translateX(-2px) rotate(-1.2deg)" },
         },
-        /**
-         * Original source:
-         * @see https://github.com/juliusmarminge/acme-corp/blob/main/tooling/tailwind/index.ts
-         */
         "fade-up": {
           "0%": {
             opacity: "0",
@@ -214,8 +212,11 @@ export default {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        rainbow: {
+          "0%": { "background-position": "0%" },
+          "100%": { "background-position": "200%" },
+        },
       },
-      /* */
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -223,6 +224,7 @@ export default {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-down": "fade-down 0.5s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        rainbow: "rainbow var(--speed, 2s) infinite linear",
       },
     },
   },
@@ -256,6 +258,5 @@ export default {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  /* */
   plugins: [animate, typography],
 } satisfies Config;

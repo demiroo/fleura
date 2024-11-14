@@ -22,6 +22,7 @@ function handleClerkMiddleware(request: NextRequest, event: NextFetchEvent) {
     }
     return shouldUseIntl ? createIntlMiddleware(request) : NextResponse.next();
   })(request, event);
+
 }
 
 export function middleware(request: NextRequest, event: NextFetchEvent) {
